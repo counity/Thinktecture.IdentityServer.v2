@@ -40,6 +40,8 @@ namespace Thinktecture.IdentityServer.Repositories
             // profile claims
             claims.AddRange(GetProfileClaims(userName));
 
+            claims.Add(new Claim(ClaimTypes.NameIdentifier,"TODO:"+userName)); //TODO: change to something better
+
             return claims;
         }
 
@@ -85,6 +87,7 @@ namespace Thinktecture.IdentityServer.Repositories
         {
             var claimTypes = new List<string>
             {
+                ClaimTypes.NameIdentifier,
                 ClaimTypes.Name,
                 ClaimTypes.Email,
                 ClaimTypes.Role
